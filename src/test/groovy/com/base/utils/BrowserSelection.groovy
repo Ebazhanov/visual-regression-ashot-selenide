@@ -17,6 +17,7 @@ class BrowserSelection {
             Configuration.browser = "Chrome"
             //Configuration.startMaximized = "Chrome"
             Configuration.browserSize = "1024x768"
+            //Configuration.headless = true
             ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup()
         } else if (deviceName != null && !deviceName.isEmpty()) {
             Configuration.browser = "Chrome"
