@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Screenshot comparison tests" parallel="tests" thread-count="3">
+    <groups>
+        <run>
+            <exclude name="Failed"/>
+        </run>
+    </groups>
+    <test name="desktop" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.tests.FullPageOnAllDevices">
+                <methods>
+                    <include name="desktop"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="tablet">
+        <parameter name="deviceName" value="iPad"/>
+        <classes>
+            <class name="com.tests.FullPageOnAllDevices">
+                <methods>
+                    <include name="tablet"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="mobile">
+        <parameter name="deviceName" value="iPhone 7"/>
+        <classes>
+            <class name="com.tests.FullPageOnAllDevices">
+                <methods>
+                    <include name="mobile"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
