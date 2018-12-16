@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Screenshot comparison tests" parallel="tests" thread-count="3">
-    <groups>
-        <run>
-            <exclude name="Failed"/>
-        </run>
-    </groups>
-    <test name="desktop" parallel="methods" thread-count="3">
+    <test name="desktop - full page">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.tests.FullPageOnAllDevices">
+            <class name="com.tests.DifferentDevices">
                 <methods>
                     <include name="desktop"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="tablet">
+    <test name="tablet - full page">
         <parameter name="deviceName" value="iPad"/>
         <classes>
-            <class name="com.tests.FullPageOnAllDevices">
+            <class name="com.tests.DifferentDevices">
                 <methods>
                     <include name="tablet"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="mobile">
+    <test name="mobile - full page">
         <parameter name="deviceName" value="iPhone 7"/>
         <classes>
-            <class name="com.tests.FullPageOnAllDevices">
+            <class name="com.tests.DifferentDevices">
                 <methods>
                     <include name="mobile"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="desktop - part of the page">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.tests.SimpleExamples">
+                <methods>
+                    <include name="desktopPartOfThePageImageComparison"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="desktop - full page with one ignore element">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.tests.SimpleExamples">
+                <methods>
+                    <include name="desktopFullPageWithOneIgnoreElement"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="desktop - full page with multiple ignore elements">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.tests.SimpleExamples">
+                <methods>
+                    <include name="desktopFullPageWithMultipleIgnoreElement"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="desktop - full page 100% failed test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.tests.SimpleExamples">
+                <methods>
+                    <include name="desktopFullPageFailedTest"/>
                 </methods>
             </class>
         </classes>

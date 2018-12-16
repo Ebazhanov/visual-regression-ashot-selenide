@@ -4,6 +4,7 @@ import com.base.tools.ScreenshotComparisonHelper
 import com.base.utils.PropertiesReader
 import com.codeborne.selenide.Condition
 import io.qameta.allure.Step
+import ru.yandex.qatools.ashot.Screenshot
 
 import static com.codeborne.selenide.Selenide.$
 import static com.codeborne.selenide.Selenide.open
@@ -18,17 +19,25 @@ class HomePage extends ScreenshotComparisonHelper {
     }
 
     @Step
-    compareScreenshotHomePage(String actualName, String expectedName, int withDiffSizeTrigger) {
+    compareFullScreenshotHomePage(String actualName, String expectedName,
+                                  String ignoreElement, int withDiffSizeTrigger) {
+        Screenshot actualScreenshot = new ScreenshotComparisonHelper().takeActualScreenshot(actualName, ignoreElement)
+        Screenshot expectedScreenshot = new ScreenshotComparisonHelper().getExpectedScreenshot(expectedName)
+        expectedScreenshot.setIgnoredAreas(actualScreenshot.getIgnoredAreas())
         assertFalse("Pixels of the shcreenshot is different",
                 compareScreenshots(
-                        takeActualScreenshot(actualName),
-                        expected(expectedName), withDiffSizeTrigger, actualName, expectedName).hasDiff())
+                        actualScreenshot,
+                        expectedScreenshot,
+                        withDiffSizeTrigger,
+                        actualName,
+                        expectedName)
+                        .hasDiff())
         return this
     }
 
     @Step
     closeCookiesPopup() {
-        $(".buttonholder").waitUntil(Condition.visible, 1000).click()
+        $(".optanon-allow-all.accept-cookies-button").waitUntil(Condition.visible, 1000).click()
         return this
     }
 

@@ -39,7 +39,7 @@ dependencies {
 
 tasks.withType(Test).all { testTask ->
     systemProperties['allure.results.directory'] = file("$buildDir/allure-results")
-    systemProperties['selenide.reports'] = file("$buildDir/selenide-results")
+    systemProperties['selenide.reports'] = file("$buildDir/allure-results")
     testTask.systemProperties['file.encoding'] = 'UTF-8'
     testTask.testLogging.showStandardStreams = true
     testTask.outputs.upToDateWhen { false }

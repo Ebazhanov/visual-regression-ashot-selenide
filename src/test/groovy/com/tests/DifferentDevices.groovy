@@ -7,7 +7,10 @@ import io.qameta.allure.Feature
 import org.testng.annotations.Test
 
 @Feature("Desktop/Tablet/Mobile full screenshot comparison")
-class FullPageOnAllDevices extends SelenideBaseTest {
+class DifferentDevices extends SelenideBaseTest {
+
+    private int DIFF_PIXELS = 20
+    private String IGNORE_LOCATOR = ".mx-auto.col-sm-8.col-md-5.hide-sm"
 
     @Test
     @Description("Run test on Mobile emulator iPhone 7 in Chrome")
@@ -15,7 +18,11 @@ class FullPageOnAllDevices extends SelenideBaseTest {
         new HomePage()
                 .openHomePage()
                 .closeCookiesPopup()
-                .compareScreenshotHomePage("ActualHomeMobilePage", "OriginalHomeMobilePage", 10)
+                .compareFullScreenshotHomePage(
+                "ActualHomeMobilePage.png",
+                "OriginalHomeMobilePage.png",
+                IGNORE_LOCATOR,
+                DIFF_PIXELS)
     }
 
     @Test
@@ -24,7 +31,11 @@ class FullPageOnAllDevices extends SelenideBaseTest {
         new HomePage()
                 .openHomePage()
                 .closeCookiesPopup()
-                .compareScreenshotHomePage("ActualHomeTabletPage", "OriginalHomeTabletPage", 10)
+                .compareFullScreenshotHomePage(
+                "ActualHomeTabletPage.png",
+                "OriginalHomeTabletPage.png",
+                IGNORE_LOCATOR,
+                DIFF_PIXELS)
     }
 
     @Test
@@ -33,7 +44,11 @@ class FullPageOnAllDevices extends SelenideBaseTest {
         new HomePage()
                 .openHomePage()
                 .closeCookiesPopup()
-                .compareScreenshotHomePage("ActualHomeDesktopPage", "OriginalHomeDesktopPage", 10)
+                .compareFullScreenshotHomePage(
+                "ActualHomeDesktopPage.png",
+                "OriginalHomeDesktopPage.png",
+                IGNORE_LOCATOR,
+                DIFF_PIXELS)
     }
 
 }
