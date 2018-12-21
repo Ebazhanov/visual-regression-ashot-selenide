@@ -1,17 +1,17 @@
-##@ Full page Screenshot comparison
+## Full page Screenshot comparison
 
  * Official documentation [Ashot](https://github.com/pazone/ashot)
 
-#Motivation: 
+# Motivation: 
 To find free tool to make full screenshots comparison on desktop + tablet/mobile!
 
-##Examples:
+## Examples:
 
 * Simple example with all magic is [here](https://github.com/Ebazhanov/Ashot-Selenide/blob/master/src/test/groovy/com/tests/SimpleExamples.groovy)
 
 * How it can be in your tests [here](https://github.com/Ebazhanov/Ashot-Selenide/blob/master/src/test/groovy/com/tests/DifferentDevices.groovy)
 
-####How to run an example:
+#### How to run:
 
 `$ clean test`
 
