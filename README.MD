@@ -1,6 +1,6 @@
-## Full page Screenshot comparison
+## Full page Screenshot comparison with 'Ashot'
 
- * Official documentation [Ashot](https://github.com/pazone/ashot)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/pazone/ashot)
 
 # Motivation: 
 To find free tool to make full screenshots comparison on desktop + tablet/mobile!
