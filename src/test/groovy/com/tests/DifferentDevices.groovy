@@ -2,6 +2,7 @@ package com.tests
 
 import com.base.SelenideBaseTest
 import com.base.pages.HomePage
+import com.base.tools.ScreenshotFileNameEnum
 import io.qameta.allure.Description
 import io.qameta.allure.Feature
 import org.testng.annotations.Test
@@ -19,8 +20,7 @@ class DifferentDevices extends SelenideBaseTest {
                 .openHomePage()
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
-                "ActualHomeMobilePage.png",
-                "OriginalHomeMobilePage.png",
+                ScreenshotFileNameEnum.HomePageMobile,
                 IGNORE_LOCATOR,
                 DIFF_PIXELS)
     }
@@ -32,8 +32,7 @@ class DifferentDevices extends SelenideBaseTest {
                 .openHomePage()
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
-                "ActualHomeTabletPage.png",
-                "OriginalHomeTabletPage.png",
+                ScreenshotFileNameEnum.HomePageTablet,
                 IGNORE_LOCATOR,
                 DIFF_PIXELS)
     }
@@ -45,8 +44,7 @@ class DifferentDevices extends SelenideBaseTest {
                 .openHomePage()
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
-                "ActualHomeDesktopPage.png",
-                "OriginalHomeDesktopPage.png",
+                ScreenshotFileNameEnum.HomePageTablet,
                 IGNORE_LOCATOR,
                 DIFF_PIXELS)
     }

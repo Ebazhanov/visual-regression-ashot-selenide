@@ -1,6 +1,7 @@
 package com.base.pages
 
 import com.base.tools.ScreenshotComparisonHelper
+import com.base.tools.ScreenshotFileNameEnum
 import com.base.utils.PropertiesReader
 import com.codeborne.selenide.Condition
 import io.qameta.allure.Step
@@ -19,18 +20,18 @@ class HomePage extends ScreenshotComparisonHelper {
     }
 
     @Step
-    compareFullScreenshotHomePage(String actualName, String expectedName,
+    compareFullScreenshotHomePage(ScreenshotFileNameEnum fileNameEnum,
                                   String ignoreElement, int withDiffSizeTrigger) {
-        Screenshot actualScreenshot = new ScreenshotComparisonHelper().takeActualScreenshot(actualName, ignoreElement)
-        Screenshot expectedScreenshot = new ScreenshotComparisonHelper().getExpectedScreenshot(expectedName)
+        Screenshot actualScreenshot = new ScreenshotComparisonHelper().takeActualScreenshot(fileNameEnum.actual, ignoreElement)
+        Screenshot expectedScreenshot = new ScreenshotComparisonHelper().getExpectedScreenshot(fileNameEnum.original)
         expectedScreenshot.setIgnoredAreas(actualScreenshot.getIgnoredAreas())
         assertFalse("Pixels of the shcreenshot is different",
                 compareScreenshots(
                         actualScreenshot,
                         expectedScreenshot,
                         withDiffSizeTrigger,
-                        actualName,
-                        expectedName)
+                        fileNameEnum.actual,
+                        fileNameEnum.original)
                         .hasDiff())
         return this
     }
