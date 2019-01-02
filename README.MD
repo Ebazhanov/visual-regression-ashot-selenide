@@ -19,6 +19,15 @@ To find free tool to make full screenshots comparison on desktop + tablet/mobile
 
 > **Default browser:** Chrome
 
+
+# How you can update screenshots for Visual tests
+
+-	to run failed tests by running `your testNG ... .xml` suit
+-	search for the results in `//Resources/ActualScreenshot.png` folder, there should be appeared screenshot with `Actual ... png` in the name
+-	once you found your screenshot > exchange part of the name from `Actual` to `Original`
+-	if you still get screenshot with `Difference ... .png` double check maybe you have missed ignoreElement
+
+
 The cool thing is the tests are 100% stable
 
 FYI if you want to try something else look at the video [youtube](https://www.youtube.com/watch?v=ydK36JRiMOw)
