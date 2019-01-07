@@ -3,8 +3,8 @@ package com.base.tools
 enum ScreenshotFileNameEnum {
 
     HomePageDesktop("ActualHomeDesktopPage.png", "ActualHomeDesktopPage.png"),
-    HomePageMobile("ActualHomeMobilePage.png", "OriginalHomeMobilePage.png"),
-    HomePageTablet("ActualHomeTabletPage.png", "OriginalHomeTabletPage.png");
+    HomePageTablet("ActualHomeTabletPage.png", "OriginalHomeTabletPage.png"),
+    HomePageMobile("ActualHomeMobilePage.png", "OriginalHomeMobilePage.png");
 
     String actual
     String original
@@ -13,5 +13,5 @@ enum ScreenshotFileNameEnum {
         this.actual = actual
         this.original = original
     }
-    
+
 }

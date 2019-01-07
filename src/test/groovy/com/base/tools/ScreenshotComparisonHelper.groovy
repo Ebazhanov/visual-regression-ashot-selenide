@@ -21,7 +21,7 @@ class ScreenshotComparisonHelper {
 
     Screenshot takeActualScreenshot(String screenshotName, String ignoreElement) {
         Screenshot takeScreenshot = new AShot()
-                .shootingStrategy(ShootingStrategies.viewportRetina(300, 0, 0, 2))
+                .shootingStrategy(ShootingStrategies.viewportRetina(1000, 0, 0, 2))
                 .coordsProvider(new WebDriverCoordsProvider())
                 .addIgnoredElement(By.cssSelector(ignoreElement))
                 .takeScreenshot(WebDriverRunner.getWebDriver())

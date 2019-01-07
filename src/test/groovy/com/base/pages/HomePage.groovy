@@ -38,7 +38,8 @@ class HomePage extends ScreenshotComparisonHelper {
 
     @Step
     closeCookiesPopup() {
-        $(".optanon-allow-all.accept-cookies-button").waitUntil(Condition.visible, 1000).click()
+        $(".optanon-alert-box-wrapper.hide-cookie-setting-button .optanon-alert-box-button.optanon-button-allow > div > a").
+                waitUntil(Condition.visible, 1000).click()
         return this
     }
 
