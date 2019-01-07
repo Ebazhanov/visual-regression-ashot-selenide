@@ -19,11 +19,11 @@ class ScreenshotComparisonHelper {
 
     private String pathToResources = "src/test/resources/"
 
-    Screenshot takeActualScreenshot(String screenshotName, String ignoreElement) {
+    Screenshot takeActualScreenshot(String screenshotName, Set<By> setIgnoreElements) {
         Screenshot takeScreenshot = new AShot()
-                .shootingStrategy(ShootingStrategies.viewportRetina(1000, 0, 0, 2))
+                .shootingStrategy(ShootingStrategies.viewportRetina(3000, 0, 0, 2))
                 .coordsProvider(new WebDriverCoordsProvider())
-                .addIgnoredElement(By.cssSelector(ignoreElement))
+                .ignoredElements(setIgnoreElements)
                 .takeScreenshot(WebDriverRunner.getWebDriver())
         ImageIO.write(takeScreenshot.getImage(), "PNG", new File(pathToResources + screenshotName));
         return takeScreenshot

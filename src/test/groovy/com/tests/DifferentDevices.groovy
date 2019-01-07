@@ -5,23 +5,30 @@ import com.base.pages.HomePage
 import com.base.tools.ScreenshotFileNameEnum
 import io.qameta.allure.Description
 import io.qameta.allure.Feature
+import org.openqa.selenium.By
 import org.testng.annotations.Test
 
 @Feature("Desktop/Tablet/Mobile full screenshot comparison")
 class DifferentDevices extends SelenideBaseTest {
 
     private int DIFF_PIXELS = 20
-    private String IGNORE_LOCATOR = ".mx-auto.col-sm-8.col-md-5.hide-sm"
+
+    private static Set<By> ignoreElements() {
+        Set<By> setIgnoredElements = new HashSet<>()
+        setIgnoredElements.add(By.cssSelector("[class='stagecarousel']:nth-child(1)"))
+        setIgnoredElements.add(By.cssSelector("#parsys-imageteaser_1166698632"))
+        return setIgnoredElements
+    }
 
     @Test
-    @Description("Run test on Mobile emulator iPhone 7 in Chrome")
-    void mobile() {
+    @Description("Run test on Desktop")
+    void desktop() {
         new HomePage()
                 .openHomePage()
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
-                ScreenshotFileNameEnum.HomePageMobile,
-                IGNORE_LOCATOR,
+                ScreenshotFileNameEnum.HomePageDesktop,
+                ignoreElements(),
                 DIFF_PIXELS)
     }
 
@@ -33,19 +40,19 @@ class DifferentDevices extends SelenideBaseTest {
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageTablet,
-                IGNORE_LOCATOR,
+                ignoreElements(),
                 DIFF_PIXELS)
     }
 
     @Test
-    @Description("Run test on Desktop")
-    void desktop() {
+    @Description("Run test on Mobile emulator iPhone 7 in Chrome")
+    void mobile() {
         new HomePage()
                 .openHomePage()
                 .closeCookiesPopup()
                 .compareFullScreenshotHomePage(
-                ScreenshotFileNameEnum.HomePageTablet,
-                IGNORE_LOCATOR,
+                ScreenshotFileNameEnum.HomePageMobile,
+                ignoreElements(),
                 DIFF_PIXELS)
     }
 
