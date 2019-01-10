@@ -14,7 +14,7 @@ To find free tool to make full screenshots comparison on desktop + tablet/mobile
 #### How to run:
 
 `$ clean test`
-
+`$ allureReport`
 `$ allureServe`
 
 > **Default browser:** Chrome
