@@ -91,14 +91,19 @@ class SimpleExamples extends SelenideBaseTest {
     void desktopFullPageFailedTest() {
         open("https://www.bvg.de/en/")
         $(".button.cookie-confirm__button.cookie-confirm__accept").waitUntil(Condition.visible, 1000).click()
+        Set<By> setIgnoredElements = new HashSet()
+        setIgnoredElements.add(By.cssSelector(".traffic-info"))
+        setIgnoredElements.add(By.cssSelector(".teaser"))
+        setIgnoredElements.add(By.cssSelector(".call-center"))
         Screenshot actualScreenshot = new AShot()
                 .shootingStrategy(ShootingStrategies.viewportRetina(300, 0, 0, 2))
                 .coordsProvider(new WebDriverCoordsProvider())
+                .ignoredElements(setIgnoredElements)
                 .takeScreenshot(WebDriverRunner.getWebDriver())
         ImageIO.write(actualScreenshot.getImage(), "PNG", new File(pathToResources + "ActualDesktopFullPageBvg.png"))
         Screenshot expectedImage = new Screenshot(ImageIO.read(new File(pathToResources + "OriginalDesktopFullPageBvg.png")))
+        expectedImage.setIgnoredAreas(actualScreenshot.getIgnoredAreas())
         ImageDiff diff = new ImageDiffer().makeDiff(expectedImage, actualScreenshot).withDiffSizeTrigger(0)
-
         if (diff.hasDiff()) {
             ImageIO.write(diff.getMarkedImage(), "PNG", new File(pathToResources + "DifferenceDesktopFullPageBvg.png"))
         }

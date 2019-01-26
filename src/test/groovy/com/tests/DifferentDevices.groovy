@@ -15,8 +15,8 @@ class DifferentDevices extends SelenideBaseTest {
 
     private static Set<By> ignoreElements() {
         Set<By> setIgnoredElements = new HashSet<>()
-        setIgnoredElements.add(By.cssSelector("[class='stagecarousel']:nth-child(1)"))
-        setIgnoredElements.add(By.cssSelector("#parsys-imageteaser_1166698632"))
+        setIgnoredElements.add(By.cssSelector(".CustomerRatings__content"))
+        setIgnoredElements.add(By.cssSelector(".LegalText__container"))
         return setIgnoredElements
     }
 
@@ -25,7 +25,7 @@ class DifferentDevices extends SelenideBaseTest {
     void desktop() {
         new HomePage()
                 .openHomePage()
-                .closeCookiesPopup()
+                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageDesktop,
                 ignoreElements(),
@@ -37,7 +37,7 @@ class DifferentDevices extends SelenideBaseTest {
     void tablet() {
         new HomePage()
                 .openHomePage()
-                .closeCookiesPopup()
+                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageTablet,
                 ignoreElements(),
@@ -49,7 +49,7 @@ class DifferentDevices extends SelenideBaseTest {
     void mobile() {
         new HomePage()
                 .openHomePage()
-                .closeCookiesPopup()
+                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageMobile,
                 ignoreElements(),
