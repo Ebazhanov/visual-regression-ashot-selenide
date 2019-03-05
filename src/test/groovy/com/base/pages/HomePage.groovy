@@ -37,10 +37,4 @@ class HomePage extends ScreenshotComparisonHelper {
         return this
     }
 
-    @Step
-    closeCookiesPopup() {
-        $(".icon-cross-fat").waitUntil(Condition.visible, 1000).click()
-        return this
-    }
-
 }

@@ -25,7 +25,6 @@ class DifferentDevices extends SelenideBaseTest {
     void desktop() {
         new HomePage()
                 .openHomePage()
-                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageDesktop,
                 ignoreElements(),
@@ -37,7 +36,6 @@ class DifferentDevices extends SelenideBaseTest {
     void tablet() {
         new HomePage()
                 .openHomePage()
-                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageTablet,
                 ignoreElements(),
@@ -49,7 +47,6 @@ class DifferentDevices extends SelenideBaseTest {
     void mobile() {
         new HomePage()
                 .openHomePage()
-                //.closeCookiesPopup()
                 .compareFullScreenshotHomePage(
                 ScreenshotFileNameEnum.HomePageMobile,
                 ignoreElements(),
