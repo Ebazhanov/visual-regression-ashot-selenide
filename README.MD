@@ -5,6 +5,12 @@
 # Motivation: 
 To find free tool to make full screenshots comparison on desktop + tablet/mobile!
 
+### Available options
+
+- [x] ignore elements
+- [x] pixel difference (e.g. withDiffSizeTrigger(10pixel))
+- [x] timeout for time scrolling
+
 ## Examples:
 
 * Simple example with all magic is [here](https://github.com/Ebazhanov/Ashot-Selenide/blob/master/src/test/groovy/com/tests/SimpleExamples.groovy)
